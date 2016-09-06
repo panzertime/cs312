@@ -1,0 +1,62 @@
+%&format -translate-file pdf
+\documentclass{article}
+\usepackage{algorithm2e}
+\title{Homework 1}
+\author{RT Hatfield}
+\date{31 August 2016}
+\begin{document}
+    \maketitle
+    \begin{enumerate}
+        \item Problems from book
+        \begin{enumerate}
+            \item $f = \Theta(g)$
+            \item $f = \Omega(g)$
+            \item $f = O(g)$
+            \item $f = \Theta(g)$
+            \item $f = O(g)$
+            \item $f = \Omega(g)$
+            \item $f = O(g)$
+        \end{enumerate}
+        \item Bonus
+            \begin{equation}
+                \ g(n) = \frac{1 - c^{n+1}}{1-c}
+            \end{equation}
+            \begin{enumerate}
+                \item $$\lim_{n \to \infty}\frac{\frac{1 - c^{n+1}}{1-c}}{1} = \frac{\frac{1}{1-c}}{1} = \frac{1}{1-c} $$
+                If $0 < c < 1$, then $0 < \frac{1}{1-c} < 1$, and $g(n) = \Theta(1)$.
+                \item If $c = 1$, then the sum of the geometric series is $1 + n$.  $$\lim_{n \to \infty}\frac{1 + n}{n} = \lim_{n \to \infty}\frac{1}{n} + 1 = 1$$
+                Therefore, if $c=1$, $g(n) = \Theta(n)$.
+                \item $$\lim_{n \to \infty}\frac{\frac{1 - c^{n+1}}{1-c}}{c^n} = \lim_{n \to \infty}\frac{1 - c^{n+1}}{c^n - c^{n+1}} = -\frac{c}{1-c} $$
+                If $c > 1$, then $0 < -\frac{c}{1-c} < 1$, and $g(n) = \Theta(c^n)$. 
+            \end{enumerate}
+        \item Fabonacci Series
+        \begin{enumerate}
+            \item \begin{algorithm}[H]
+                \KwData{$n$: desired Fabonacci number in sequence}
+                \KwResult{Fabonacci number at that index}
+                \If{$n = 0, 1, 2$}{\label{basecase}
+                    return 1\;
+                }
+                \Else{
+                    return Fabonacci($n-1$) $+$ Fabonacci($n-2$) $*$ Fabonacci($n-3$)\; 
+                }
+            \end{algorithm}
+            This algorithm requires $O(3^n)$.  The call stack would look like a ternary tree, which Wikipedia tells me has a size of $\frac{3^{n+1}-1}{2}$ nodes if the height is $n$.  Reducing this to normal Big-O gives $O(3^n)$.
+            \item \begin{algorithm}[H]
+                \KwData{$n$: desired Fabonacci number in sequence}
+                \KwResult{Fabonacci number at that index}
+                create array $Fab$ at least as long as $n$\;
+                \For{$i\leftarrow 0$ \KwTo $n$}{
+                    \If{$i = 0, 1, 2$}{\label{basecase}
+                        $Fab$[$i$] $\leftarrow 1$\;
+                    }
+                    \Else{
+                        $Fab$[$i$] $\leftarrow Fab$[$i-1$] + $Fab$[$i-2$] * $Fab$[$i-3$]\;
+                    }
+                }
+                return $Fab$[$n$]\;
+            \end{algorithm}
+            This algorithm will require $2(n-3)$ adds and multiplies to calculate the given Fabonacci number.
+        \end{enumerate}
+    \end{enumerate}
+\end{document}
