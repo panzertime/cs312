@@ -1,0 +1,82 @@
+%&format -translate-file pdf
+\documentclass{article}
+\usepackage{algorithm2e}
+\usepackage{amssymb}
+\usepackage{listings}
+\title{Homework 5}
+\author{RT Hatfield}
+\date{19 September 2016}
+\begin{document}
+    \maketitle
+    \begin{enumerate}
+        \item \begin{itemize}
+            \item An individual \lstinline`merge` has complexity $O(l + m)$, where $l$ and $m$ are the sizes of the lists being
+            merged.  We have $k$ lists of $n$ elements to merge, so the first \lstinline`merge` has complexity $O(2n)$, 
+            the second has complexity $O(2n + n)$, the third has complexity $O(3n + n)$, and so forth.  We end up with 
+            a complexity like $O(\sum_{i=1}^{k - 1} (i+1)n)$, which reduces to the category of $O(kn)$.
+            \item Divide and conquer?  I'll divide you!  
+
+            Really, though, I've been thinking about this and not sure how to go about it.  I keep coming up with solutions
+            that involve taking pairs of the lists and merging them, but they all end up seeming to run in $O(kn)$ time.
+        \end{itemize}
+        \item \begin{itemize}
+            \item If the majority elements of $A_1$ and $A_2$ are the same, obviously that's also the majority
+            element of $A$.  If not, whichever majority element is larger is the majority element of $A$.
+
+            The idea behind what I'm doing here is that if any element takes up over half the list, then that element
+            is going to have to be repeated sequentially at some point.  I find any elements which are repeated sequentially
+            and save those, ditching the rest.
+
+            \begin{procedure}[H]
+                \KwData{A list $A$}
+                \KwResult{The majority element, if any, of $A$; null if none}
+                \If{$A$.size == 2}{
+                    \If{$A[0] == A[1]$}{
+                        return $A[0]$\;
+                    }
+                    \Else{
+                        return null\;
+                    }
+                }
+                \Else{
+                    $A_1$ = $A [ 0\dots \frac{n}{2} ]$\;
+                    $A_2$ = $A [ (\frac{n}{2} + 1) \dots n ]$\;
+                    $a$ = check($A_1$)\;
+                    $b$ = check($A_2$)\;
+                    \If{$a == b$}{
+                        return $a$\;
+                    }
+                    \Else{
+                        \If{$a == null$}{
+                            return $b$\;
+                        }
+                        return $a$\;
+                    }
+                }
+            \end{procedure} 
+            \item This is based on the same insight I had when working out the previous algorithm, only it decides
+            a little differently with less overhead.
+
+            \begin{procedure}[H]
+                \KwData{A list $A$}
+                \KwResult{The majority element, if any, of $A$; null if none}
+                \If{$A$.size == 2}{
+                    \If{$A[0] == A[1]$}{
+                        return $A[0]$\;
+                    }
+                    \Else{
+                        return null\;
+                    }
+                }
+                \Else{
+                    \For{$i \to \frac{n}{2}$}{
+                        \If{$A[i] == A[A.length - i]$}{
+                            $B$.append($A[i]$)\;
+                        }
+                    }
+                    return check($B$)\;
+                }
+            \end{procedure}
+        \end{itemize}
+    \end{enumerate}
+\end{document}

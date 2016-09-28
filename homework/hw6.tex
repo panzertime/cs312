@@ -1,0 +1,82 @@
+%&format -translate-file pdf
+\documentclass{article}
+\usepackage{algorithm2e}
+\usepackage{amssymb}
+\usepackage{listings}
+\title{Homework 6}
+\author{RT Hatfield}
+\date{21 September 2016}
+\begin{document}
+    \maketitle
+    \begin{enumerate}
+        \item \begin{itemize}
+            \item A.  Pre: 1 Post: 12
+            \begin{itemize}
+                \item Tree edges: B
+            \end{itemize}
+            \item B. Pre: 2 Post: 11
+            \begin{itemize}
+                \item Tree edges: C
+            \end{itemize}
+            \item C. Pre: 3 Post: 10
+            \begin{itemize}
+                \item Tree edges: F
+            \end{itemize}
+            \item D. Pre: 13 Post: 18
+            \begin{itemize}
+                \item Tree edges: G
+            \end{itemize}
+            \item E. Pre: 5 Post: 6
+            \begin{itemize}
+                \item Back edges: A, B
+            \end{itemize}
+            \item F. Pre: 4 Post: 9
+            \begin{itemize}
+                \item Tree edges: E, I
+            \end{itemize} 
+            \item G. Pre: 14 Post: 17
+            \begin{itemize}
+                \item Tree edges: H
+            \end{itemize}
+            \item H. Pre: 15 Post: 16
+            \begin{itemize}
+                \item Back edges: G
+            \end{itemize}
+            \item I. Pre: 7 Post: 8
+        \end{itemize}
+        \item \begin{itemize}
+            \item \begin{itemize}
+                \item Ordering: \begin{itemize}
+                \item A. Pre: 1 Post: 16
+                \item B. Pre: 2 Post: 15
+                \item C. Pre: 3 Post: 14
+                \item D. Pre: 4 Post: 13
+                \item E. Pre: 8 Post: 9 
+                \item F. Pre: 7 Post: 10
+                \item G. Pre: 6 Post: 11
+                \item H. Pre: 5 Post: 12
+                \end{itemize}
+                \item Tree edges: $AB, BC, CD, DH, HG, GF, FE$
+                \item Forward edges: $AF, BE$
+                \item Back edges: $DB, FG, EG, ED$
+                \item Cross edges: There don't appear to be any
+            \end{itemize}
+            \item \begin{itemize}
+                \item Ordering: \begin{itemize}
+                \item A. Pre: 1 Post: 16
+                \item B. Pre: 2 Post: 11
+                \item C. Pre: 4 Post: 5
+                \item D. Pre: 6 Post: 9
+                \item E. Pre: 7 Post: 8 
+                \item F. Pre: 3 Post: 10
+                \item G. Pre: 13 Post: 14
+                \item H. Pre: 12 Post: 15
+                \end{itemize}
+                \item Tree edges: $AB, BF, FC, FD, DE, AH, HG$
+                \item Forward edges: $FE$
+                \item Back edges: $CB, GA$
+                \item Cross edges: $GB, GF, DC$
+            \end{itemize}
+        \end{itemize}
+    \end{enumerate}
+\end{document}

@@ -1,4 +1,9 @@
+%&format -translate-file pdf
 \documentclass{article}
+\usepackage{algorithm2e}
+\title{Notes}
+\author{RT Hatfield}
+\date{31 August 2016}
 \begin{document}
 Big O is a set, i.e. a category.
 $10n = O(n)$ is a shortcut for $10n \in O(n)$.  We know that $10n$ is in the category of functions shaped
@@ -9,5 +14,20 @@ Likewise, $10n^3 + 75n^2 - 5200n + 1000007$ is in the category of functions shap
 Formally:
 $$ O(g(n)) = \left\{ {f(n) | \exists c,n_0 > 0 \land f(n) \leq c\bullet g(n), \forall n>n_0 }\right\}$$
 
-
+Modular exponentiation:
+$2^{25 \bmod 20}=2^5=32 \bmod 20=12$
+\begin{algorithm}[H]
+    \KwData{x, y, N}
+    \KwResult{$x^{y \bmod N}$}
+    \If{$y=0$}{
+        return 1\;
+    }
+    z = modexp($x$, $\lfloor\frac{y}{2}\rfloor$, $N$)\;
+    \If{$y$ is even}{
+    return $z^2 \bmod N$\;
+    }
+    \Else{
+    return $x \bullet z^2 \bmod N$\;
+    }
+\end{algorithm}
 \end{document}

@@ -1,0 +1,41 @@
+%&format -translate-file pdf
+\documentclass{article}
+\usepackage{algorithm2e}
+\usepackage{amssymb}
+\usepackage{listings}
+\title{Homework 4}
+\author{RT Hatfield}
+\date{14 September 2016}
+\begin{document}
+    \maketitle
+    \begin{enumerate}
+        \item \begin{itemize}
+            \item $1 < \log_{2}{5}$ therefore $5T(\lceil\frac{n}{2}\rceil) + O(n) = O(n^{\log_{2}{5}}) \approx O(n^{0.431})$  This is my choice.
+            \item $0 < \log_{\frac{n}{n-1}}{2} = \frac{\ln{2}}{\ln{n} - \ln{(n-1)}}$ therefore $2T(\lceil\frac{n}{\frac{n}{n-1}}\rceil) + O(1) = O(n^{\log_{\frac{n}{n-1}}{2}})$
+            This one depends on the size of $n$.  For $n=100$, it evaluates to approximately $O(n^{68.97})$.  It increases proportional to $n$.
+            \item $2 > \log_{3}{9}$ therefore $9T(\lceil\frac{n}{3}\rceil) + O(n^2) = O(n^2)$
+        \end{itemize}
+        \item \begin{itemize}
+            \item $0 < \log_{3}{2}$, $O(n^{\log_{3}{2}})$
+            \item $1 < \log_{4}{5}$, $O(n^{\log_{4}{5}})$
+            \item $1 = \log_{7}{7}$, $O(n\log n)$
+            \item $2 > \log_{3}{9}$, $O(n^2)$
+            \item $3 = \log_{2}{8}$, $O(n^3\log n)$
+        \end{itemize}
+        \item If I understand this correctly, we want to join subproblems in constant time.  Also, $0 = \log_{b}{a}$, so $a = 1$. 
+        So each recursion must involve a single subproblem of any size.  Logical \lstinline`OR` runs in constant time, and each recursion
+        has a single subproblem. 
+
+            \begin{procedure}[H]
+                \KwData{A sorted list $L$ and starting index $i$}
+                \KwResult{Whether the list contains any item equal to its own position}
+                \If{$i < L.$size()}{
+                    return $L[i] == i$ OR listInspector($L$, $i + 1$)\;
+                }
+                \Else{
+                return false\;
+                }
+            \end{procedure}
+    \end{enumerate}
+\end{document}
+
