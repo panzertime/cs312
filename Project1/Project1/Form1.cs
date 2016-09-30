@@ -29,7 +29,7 @@ namespace Project1
             }
             if (prime_test(Convert.ToInt64(input.Text), k))
             {
-                output.Text = input.Text + " is prime with k = " + k.ToString();
+                output.Text = input.Text + " is prime with k = " + k.ToString() + " and probability of correctness > " + (1 - (1 / Math.Pow(2, k))).ToString();
             }
             else
             {

@@ -44,6 +44,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CHull.cs" />
     <Compile Include="ConvexHullSolver.cs" />
     <Compile Include="DirectBitmapWriter.cs" />
     <Compile Include="FormMain.cs">
