@@ -1,0 +1,25 @@
+%&format -translate-file pdf
+\documentclass{article}
+\usepackage{algorithm2e}
+\title{Homework 12}
+\author{RT Hatfield}
+\date{17 October 2016}
+\begin{document}
+    \maketitle
+    \begin{enumerate}
+    \item \begin{itemize}
+        \item (1, 1, 3, 3)
+        \item \begin{itemize}
+            \item I, uh, am probably not smart enough to figure this one out
+        \end{itemize}
+        \item
+    \end{itemize}
+    \item If the path from the root of the tree to the leaf corresponds to the encoding, then all we have to
+    do is make sure that no character is on the path to another character, i.e. that no character is the 
+    parent of any other character.  Since we have already specified that all characters are at the leaves of
+    the tree, this quality is satisified.  Further, the encoding is binary, and so is the tree.  No node can
+    have more than two children.  Since each node represents a partial path from the root, therefore a prefix,
+    only two possible choices exist for either child: a character, which terminates the path, or another subtree,
+    which continues the prefix, but by necessity does not start with the same character as the other child.
+\end{enumerate}
+\end{document}

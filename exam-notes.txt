@@ -1,0 +1,152 @@
+big-O trick: take the limit as n approaches infinity of $\frac{g(n)}{f(n)}$.  
+    If greater than or equal to 0, then $f(n) = O(g(n)$.
+    If greater than 0, less than or equal to infinity, it's big-Omega.  
+    Between 0 and infinity, it's big-Theta.
+        
+Modular exponentiation: 
+    modexp(x,y,N)  
+        if y = 0 return 1;
+        z = modexp(x, floor(y/2), N)
+        if y is even return z^2 mod N
+        else return x * z^2 mod N
+
+Euclid:
+    euclid(a, b)
+        if b = 0 return a;
+        return euclid(b, a mod b)
+
+Extended Euclid:
+Returns x, y, d s.t. d = gcd(a,b) and ax + by = d
+    extEuclid(a, b)
+        if b = 0 return {1, 0, a}
+        {x', y', d} = extEuclid(b, a mod b)
+        return {y', x' - floor(a/b) * y', d}
+
+Primality:
+Run this k times to get probability of false positive l.t. 1 / (2^k)
+    primal(N)
+        Pick random a < N
+        if a^(N-1) congruent to 1 mod N return yes
+        else return no
+
+RSA:
+    p, q, N=pq, phi(N) relatively prime to e, ed = 1 mod phi(N)
+    Encrypt: mplain ^ e mod N
+    Decrypt: mcrypt ^ d mod N
+
+Master Theorem:
+    T(n) = a * T(ceil(n/b)) + O(n^d) where: a supbroblems of size n/b combined in O(n^d) time
+    if d < log_b a, O(n^d)
+    if d = log_b a, O(n^d log n)
+    if d > log_b a, O(n^(log_b a))
+
+Explore a graph:
+    explore(G, v)
+    visited(v) = true
+    previsit(v)
+    for each edge (v, u) in E
+        if not visited(u) explore(u)
+    postvisit(v)
+
+DFS:
+    dfs(G)
+        for all v in V
+            visited(v) = false
+        for all v in V
+            if not visited(v) explore(v)
+
+Edge kinds:
+    If pre/post of v is "inside" u, u->v is a tree or forward edge
+    If u is inside v, it's a backwards edge
+    If they are not nested, it's a cross edge
+
+BFS:
+    bfs(G, s)
+        for all u in V 
+            dist(u) = infinity
+        dist(s) = 0
+        Q = [s]
+        while Q not empty
+            u = eject(Q)
+            for all edges (u, v) in E
+                if dist(v) = infinity
+                    inject(Q, v)
+                    dist(v) = dist(u) + 1
+    
+Dijkstra's:
+    dijkstra(G, l, s)
+        for all u in V
+            dist(u) = infinity
+            prev(u) = nil
+        dist(s) = 0
+        H = makequeue(V)
+        while H is not empty   
+            u = deletemin(H)
+            for all (u, v) in E
+                if dist(v) > dist(u) + l(u, v)
+                    dist(v) = dist(u) + l(u, v)
+                    prev(v) = u
+                    decreasekey(H, v)
+
+Heaps:
+            deletemin   insert/decreasekey
+    Array   O(|V|)      O(1)
+    B-Heap  O(log |V|)  O(log |V|)
+
+Bellman-Ford:
+    bf(G, l, s)
+        for all u in V
+            dist(u) = infinity
+            prev(u) = nil
+        dist(s) = 0
+        repeat |V| - 1 times
+            for all e in E
+                update(e)
+    update(u, v)
+        dist(v) = min{dist(v), dist(u) + l(u, v)}
+
+Kruskal's:
+    kruskal(G, w)
+        for all u in V
+            makeset(u)
+        X = {}
+        Sort the edges E by weight
+        for all edges {u, v} in E, by increasing order of weight
+            if find(u) != find(v)
+                add edge{u, v} to X
+                union(u, v)
+    makeset(x)
+        pi(x) = x
+        rank(x) = 0
+    find(x)
+        while x != pi(x)
+            x = pi(x)
+    union(x, y)
+    rx = find(x)
+    ry = find(y)
+    if rx = ry return
+    if rank(rx) > rank(ry)
+        pi(ry) = rx
+    else   
+        pi(rx) = ry
+        if rank(rx) = rank(ry)
+            rank(ry)++
+
+Prim's:
+    prim(G, w)
+        for all u in V
+            cost(u) = infinity
+            prev(u) = nil
+        Pick any initial u_nought
+        cost(u_nought) = 0
+        H = makequeue(V)
+        while H is not empty:
+            v = deletemin(H)
+            for each {v, z} in E
+                if cost(z) > w(v, z)
+                    cost(z) = w(v, z)
+                    prev(z) = v
+                    decreasekey(H, z)
+
+Entropy:
+    sum_(i = 1) to n {p_i log (1/p_i)}
