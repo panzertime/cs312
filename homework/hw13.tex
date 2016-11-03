@@ -1,0 +1,27 @@
+%&format -translate-file pdf
+\documentclass{article}
+\usepackage{graphicx}
+\usepackage{listings}
+\usepackage{algorithm2e}
+\lstset{basicstyle=\ttfamily\tiny}
+\title{Project 3}
+\author{RT Hatfield}
+\date{19 October 2016}
+\begin{document}
+\maketitle
+
+I always need the maximum subsequence + j.
+I have a maximums array, where I 
+
+First, we simply sum the whole sequence.  This is our "minimum sum."  It could be the max, but we know we don't
+want anything smaller.  So we set a "max" variable to the same value.
+
+
+
+
+
+We "crawl" across the sequence in one direction, adding one element at a time to our subsequence.  We keep track of
+the sum of each one of these subsequences in some other array.  As soon as we add an element to the subsequence that
+causes the sum to drop, we start scanning forward through our memorized sums until adding that sum makes the sum go 
+up again.  We set the "start" pointer there and start crawling the "end" pointer again.  We repeat this process.
+
