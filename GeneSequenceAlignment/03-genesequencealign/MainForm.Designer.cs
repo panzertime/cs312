@@ -28,7 +28,6 @@ namespace GeneticsLab
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             this.bandCheckBox = new System.Windows.Forms.CheckBox();
             this.bandlengthBox = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
@@ -52,13 +51,116 @@ namespace GeneticsLab
             this.toolStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
+            // bandCheckBox
+            // 
+            this.bandCheckBox.Location = new System.Drawing.Point(700, 150);
+            this.bandCheckBox.Name = "bandCheckBox";
+            this.bandCheckBox.Size = new System.Drawing.Size(15, 15);
+            this.bandCheckBox.TabIndex = 3;
+            // 
+            // bandlengthBox
+            // 
+            this.bandlengthBox.Location = new System.Drawing.Point(700, 175);
+            this.bandlengthBox.Name = "bandlengthBox";
+            this.bandlengthBox.Size = new System.Drawing.Size(75, 20);
+            this.bandlengthBox.TabIndex = 2;
+            this.bandlengthBox.Text = "5000";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(40, 315);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(63, 13);
+            this.label1.TabIndex = 4;
+            this.label1.Text = "File1 Name:";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(40, 345);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(65, 13);
+            this.label2.TabIndex = 5;
+            this.label2.Text = "Sequence1:";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(40, 375);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(65, 13);
+            this.label3.TabIndex = 6;
+            this.label3.Text = "Sequence2:";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(40, 405);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(63, 13);
+            this.label4.TabIndex = 7;
+            this.label4.Text = "File2 Name:";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(628, 180);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(69, 13);
+            this.label5.TabIndex = 0;
+            this.label5.Text = "Align Length:";
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(650, 150);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(47, 13);
+            this.label6.TabIndex = 1;
+            this.label6.Text = "Banded:";
+            // 
+            // file1Box
+            // 
+            this.file1Box.Enabled = false;
+            this.file1Box.Location = new System.Drawing.Point(115, 310);
+            this.file1Box.Name = "file1Box";
+            this.file1Box.Size = new System.Drawing.Size(500, 20);
+            this.file1Box.TabIndex = 8;
+            // 
+            // sequence1Box
+            // 
+            this.sequence1Box.Font = new System.Drawing.Font("Courier New", 9F);
+            this.sequence1Box.Location = new System.Drawing.Point(115, 340);
+            this.sequence1Box.Name = "sequence1Box";
+            this.sequence1Box.ReadOnly = true;
+            this.sequence1Box.Size = new System.Drawing.Size(730, 21);
+            this.sequence1Box.TabIndex = 9;
+            // 
+            // sequence2Box
+            // 
+            this.sequence2Box.Font = new System.Drawing.Font("Courier New", 9F);
+            this.sequence2Box.Location = new System.Drawing.Point(115, 370);
+            this.sequence2Box.Name = "sequence2Box";
+            this.sequence2Box.ReadOnly = true;
+            this.sequence2Box.Size = new System.Drawing.Size(730, 21);
+            this.sequence2Box.TabIndex = 10;
+            // 
+            // file2Box
+            // 
+            this.file2Box.Enabled = false;
+            this.file2Box.Location = new System.Drawing.Point(115, 400);
+            this.file2Box.Name = "file2Box";
+            this.file2Box.Size = new System.Drawing.Size(500, 20);
+            this.file2Box.TabIndex = 11;
+            // 
             // dataGridViewResults
             // 
             this.dataGridViewResults.AllowUserToAddRows = false;
             this.dataGridViewResults.AllowUserToDeleteRows = false;
-            this.dataGridViewResults.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
-                        | System.Windows.Forms.AnchorStyles.Left)
-                        | System.Windows.Forms.AnchorStyles.Right)));
+            this.dataGridViewResults.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.dataGridViewResults.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridViewResults.Location = new System.Drawing.Point(12, 28);
             this.dataGridViewResults.Name = "dataGridViewResults";
@@ -66,7 +168,6 @@ namespace GeneticsLab
             this.dataGridViewResults.Size = new System.Drawing.Size(855, 463);
             this.dataGridViewResults.TabIndex = 0;
             this.dataGridViewResults.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.cell_Click);
-
             // 
             // statusStrip1
             // 
@@ -85,13 +186,15 @@ namespace GeneticsLab
             // 
             // toolStrip1
             // 
-            this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {this.processButton, this.clearButton});
+            this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.processButton,
+            this.clearButton});
             this.toolStrip1.Location = new System.Drawing.Point(0, 0);
             this.toolStrip1.Name = "toolStrip1";
+            this.toolStrip1.ShowItemToolTips = false;
             this.toolStrip1.Size = new System.Drawing.Size(879, 25);
             this.toolStrip1.TabIndex = 2;
             this.toolStrip1.Text = "toolStrip1";
-            this.toolStrip1.ShowItemToolTips = false;
             // 
             // processButton
             // 
@@ -99,7 +202,7 @@ namespace GeneticsLab
             this.processButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
             this.processButton.ImageTransparentColor = System.Drawing.Color.Green;
             this.processButton.Name = "processButton";
-            this.processButton.Size = new System.Drawing.Size(48, 22);
+            this.processButton.Size = new System.Drawing.Size(51, 22);
             this.processButton.Text = "Process";
             this.processButton.Click += new System.EventHandler(this.processButton_Click);
             // 
@@ -109,102 +212,9 @@ namespace GeneticsLab
             this.clearButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
             this.clearButton.ImageTransparentColor = System.Drawing.Color.Orange;
             this.clearButton.Name = "clearButton";
-            this.clearButton.Size = new System.Drawing.Size(48, 22);
+            this.clearButton.Size = new System.Drawing.Size(38, 22);
             this.clearButton.Text = "Clear";
             this.clearButton.Click += new System.EventHandler(this.clearButton_Click);
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(40, 315);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(67, 15);
-            this.label1.Text = "File1 Name:";
-            // 
-            // file1Box
-            // 
-            this.file1Box.Enabled = false;
-            this.file1Box.Location = new System.Drawing.Point(115, 310);
-            this.file1Box.Name = "file1Box";
-            this.file1Box.Size = new System.Drawing.Size(500, 15);
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(40, 345);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(67, 15);
-            this.label2.Text = "Sequence1:";
-            // 
-            // sequence1Box
-            // 
-            this.sequence1Box.Enabled = false;
-            this.sequence1Box.Location = new System.Drawing.Point(115, 340);
-            this.sequence1Box.Name = "sequence1Box";
-            this.sequence1Box.Font = new System.Drawing.Font("Courier New", 9);
-            this.sequence1Box.Size = new System.Drawing.Size(730, 15);
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(40, 375);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(67, 15);
-            this.label3.Text = "Sequence2:";
-            //
-            // sequence2Box
-            //  
-            this.sequence2Box.Enabled = false;
-            this.sequence2Box.Location = new System.Drawing.Point(115, 370);
-            this.sequence2Box.Name = "sequence2Box";
-            this.sequence2Box.Font = new System.Drawing.Font("Courier New", 9);
-            this.sequence2Box.Size = new System.Drawing.Size(730, 15);
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(40, 405);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(67, 15);
-            this.label4.Text = "File2 Name:";
-            //
-            // file2Box
-            // 
-            this.file2Box.Enabled = false;
-            this.file2Box.Location = new System.Drawing.Point(115, 400);
-            this.file2Box.Name = "file1Box";
-            this.file2Box.Size = new System.Drawing.Size(500, 15);
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(628, 180);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(67, 15);
-            this.label5.Text = "Align Length:";
-            // 
-            // bandlengthBox
-            // 
-            this.bandlengthBox.Enabled = true;
-            this.bandlengthBox.Location = new System.Drawing.Point(700, 175);
-            this.bandlengthBox.Name = "bandlengthBox";
-            this.bandlengthBox.Size = new System.Drawing.Size(75, 20);
-            this.bandlengthBox.Text = "5000";
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(650, 150);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(67, 15);
-            this.label6.Text = "Banded:";
-            // 
-            // bandCheckBox
-            // 
-            this.bandCheckBox.Enabled = true;
-            this.bandCheckBox.Location = new System.Drawing.Point(700, 150);
-            this.bandCheckBox.Name = "bandCheckBox";
-            this.bandCheckBox.Size = new System.Drawing.Size(15, 15);
             // 
             // MainForm
             // 
@@ -229,6 +239,7 @@ namespace GeneticsLab
             this.Name = "MainForm";
             this.ShowIcon = false;
             this.Text = "Gene Sequence Alignment";
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewResults)).EndInit();
             this.statusStrip1.ResumeLayout(false);
             this.statusStrip1.PerformLayout();
             this.toolStrip1.ResumeLayout(false);
