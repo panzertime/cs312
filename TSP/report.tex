@@ -1,0 +1,25 @@
+%&format -translate-file pdf
+\documentclass{article}
+\usepackage{graphicx}
+\usepackage{listings}
+\usepackage{url}
+\lstset{basicstyle=\ttfamily\tiny}
+\title{Project 3}
+\author{RT Hatfield}
+\date{19 October 2016}
+\begin{document}
+\maketitle
+\begin{itemize}
+    \item Here is my code:
+    \begin{lstlisting}
+    \end{lstlisting}
+>    \item Complexity is denoted in comments
+    \item I have three arrays: one 2-d array which contains the cost between any two cities, and two single-dimension 
+arrays, each of which contain indexes pointing from one city to another, for forward and reverse edges.
+    \item I used an "optimized priority queue" I found on Github (at \url{https://github.com/
+        BlueRaja/High-Speed-Priority-Queue-for-C-Sharp}).  It's an array-based heap, with classic
+        heapify and bubbling operations.
+    \item I simply add all the cities to a route, in reverse order.  I mark any cities which aren't connected.  
+I then proceed to "randomize" the route iterating through the marked cities and swapping them with randomly chosen
+cities from the route.  I do this a few times and choose the lowest-cost randomized naive route. 
+>    \item Add a debug printer with cities/seed, time, max # of states (maximum size of the queue), solNum, and pruned states
