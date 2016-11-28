@@ -633,7 +633,7 @@ namespace TSP
             System.Diagnostics.Stopwatch timer = new System.Diagnostics.Stopwatch();
             timer.Start();
 
-            int solNumber = 0;
+            int solutionCount = 0;
             int statesCreated = 0;
             int branchesConsidered = 0;
             int statesStored = 0;
@@ -722,7 +722,7 @@ namespace TSP
                         // update
                         bssf = new TSPSolution(route);
                         bsf = costOfBssf();
-                        solNumber++;
+                        solutionCount++;
                     }
                     else
                     {
@@ -756,7 +756,10 @@ namespace TSP
 
             results[COST] = bssf.costOfRoute().ToString();    // load results into array here, replacing these dummy values
             results[TIME] = Convert.ToString(timer.Elapsed);
-            results[COUNT] = "-1";
+            results[COUNT] = solutionCount.ToString();
+
+            // for generating a table easily in LaTeX
+            Console.WriteLine(Cities.Length + " " + Seed + " " + results[TIME].ToString() + results[COST].ToString() + )
 
             return results;
         }
