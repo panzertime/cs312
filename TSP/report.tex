@@ -13,7 +13,7 @@
     \item Here is my code:
     \begin{lstlisting}
     \end{lstlisting}
->    \item Complexity is denoted in comments
+    \item Complexity is denoted in comments
     \item I have three arrays: one 2-d array which contains the cost between any two cities, and two single-dimension 
 arrays, each of which contain indexes pointing from one city to another, for forward and reverse edges.
     \item I used an "optimized priority queue" I found on Github (at \url{https://github.com/
@@ -22,4 +22,27 @@ arrays, each of which contain indexes pointing from one city to another, for for
     \item I simply add all the cities to a route, in reverse order.  I mark any cities which aren't connected.  
 I then proceed to "randomize" the route iterating through the marked cities and swapping them with randomly chosen
 cities from the route.  I do this a few times and choose the lowest-cost randomized naive route. 
->    \item Add a debug printer with cities/seed, time, max # of states (maximum size of the queue), solNum, and pruned states
+    \item 
+\begin{table}[]
+\centering
+\caption{My caption}
+\label{my-label}
+\begin{tabular}{llllllll}
+Cities  &   Seed    &   Run time    &   Best cost   &   Most stored states  &   Updates &   States created  &   States pruned   \\
+15	    &   20      &	0           &  	2430        &  	15                  &  	4       &	3388            &	746             \\
+16	    &   902	    &   0 	        &   3223        &	18                  &	2       &  	658             &	190             \\
+10      &	357     &	0           & 	2125        &	13                  &	2       &	552	            &   135             \\
+14      &	511     &	0           & 	3845        &	13                  &	1       &	1050            &	295             \\
+16      &	989	    &   1           & 	3106        &	15                  &	4	    &   9668        	&   2709            \\
+17	    &   883     &	4           & 	4212        &	18	                &   7	    &   24414           &	7014            \\
+18	    &   87      &	6           & 	3514        &	65                  &	2       &	31988           &	9061            \\
+19      &	927     &	5           & 	4001        &	22                  &	16      &	25796           &	6867            \\
+22      &	406     &	34          & 	3779        &	24                  &	10      &	114532	        &   32980           \\
+23	    &   179	    &   36          & 	4373        &	41                  &  	12      &	120226          &	34436           \\
+30      &	477     &	60          & 	4756        &	329                 &	2       &	155320          &	37744           \\
+40      &  	197     &	60          & 	6009        &	292                 &	8       &	73692           &	19496           \\
+50      &	224     &	60          & 	6109        &	208                 &	5       &	34558           &	8388            
+\end{tabular}
+\end{table}
+\end{itemize}
+\end{document}
